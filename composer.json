@@ -1,7 +1,7 @@
 {
   "name": "goedemiddag/laravel-autodiscovery-lock",
   "description": "Creates a lock file containing all the packages which are auto-discovered by Laravel.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "keywords": [
     "laravel",
     "autodiscovery",
@@ -21,7 +21,8 @@
     "laravel/framework": "^8.0 || ^9.0"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.13"
+    "friendsofphp/php-cs-fixer": "^3.13",
+    "phpstan/phpstan": "^1.9"
   },
   "autoload": {
     "psr-4": {

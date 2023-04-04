@@ -24,6 +24,9 @@ It should look something like this:
 ```
 
 ## Usage
+The package has two main usages. Generating a lock file to keep track of the autodiscoveries and checking for unacknowledged autodiscoveries,   
+and Verifying that your lock file and autodiscovered packages are in sync.
+### Generating the lock file
 To generate the first autodiscovery lock file, run the following command:
 ```bash
 php artisan autodiscovery:generate-lock
@@ -34,5 +37,18 @@ After generating and committing this file, and registering the above command in 
 or dumps the autoload in general. 
 
 
+### Verifying the lock file
+Validating the lock file allows you to make sure installed packages did not change their autodiscoveries without you knowing. To validate the lock file, run the following command:
+```bash
+php artisan autodiscovery:verify-lock
+```
+If there is a difference between the lock and the autodiscovered packages, the command will exit with a non-zero exit code. This allows you to use this command in your CI/CD pipeline with ease.
+Just run the command in the pipeline for your Pull Requests, and/or run the command in your build pipeline.
+
 ## Pipeline examples
 TBD
+
+## Credits 
+- [Bonroyage](https://github.com/bonroyage) - For helping out with the initial implementation.
+- [NiekKeijzer](https://github.com/NiekKeijzer) - For reviewing the code for the initial implementation.
+- [All Contributors](https://github.com/goedemiddag/laravel-autodiscovery-lock/graphs/contributors)

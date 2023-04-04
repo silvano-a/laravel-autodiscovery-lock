@@ -2,15 +2,17 @@
 
 namespace Goedemiddag\AutodiscoveryLock\Autodiscovery;
 
-use Goedemiddag\AutodiscoveryLock\Commands\AutodiscoverPackageLock;
+use Goedemiddag\AutodiscoveryLock\Commands\AutodiscoveryPackageLock;
+use Goedemiddag\AutodiscoveryLock\Commands\AutodiscoveryPackageLockVerify;
 
 class AutodiscoveryLockServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                AutodiscoverPackageLock::class
+                AutodiscoveryPackageLock::class,
+                AutodiscoveryPackageLockVerify::class
             ]);
         }
     }
